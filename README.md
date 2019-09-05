@@ -1,27 +1,36 @@
-# LibraryTest
+# DynamicJsonForm
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.0.
+dynamic-json-form@0.1.7 is the initial working version and update previous version if you had installed.
+ 
+## Steps to use
 
-## Development server
+###  Install 
+     npm i dynamic-json-form --save
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+###  Add Mustache 
+     Write path of mustache to scripts array of angular.json
+     Eg.  "scripts": [ "node_modules/mustache/mustache.min.js" ]
 
-## Code scaffolding
+###  Add Angular Theme
+     Add angular-material theme in your global css file. By default in angular project it is styles.css
+     @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+###  Resolve Json Mmodule 
+     Skip this if you use json file using http else Add this 2 properties into compiler options of tsconfig.json.
+     "compilerOptions" : {
+                            "resolveJsonModule": true, "esModuleInterop": true
+                         }
 
-## Build
+###  Import dynamic-json-form Module
+     Add this statement into your main module(by Default app.module.ts) 
+     import {DynamicJsonFormModule} from 'dynamic-json-form';
+     
+     Also import in imports array of NgModule.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+###  How to Use in your html file 
+     <lib-dynamic-json-form 
+                        [modelSchema]="modelSchema"
+                        [uiSchema]="uiSchema"
+                        [errorMessageSchema]="errorMessageSchema">
+     </lib-dynamic-json-form>
+     where modelSchema, uiSchema, errorMessageSchema contain json file.
