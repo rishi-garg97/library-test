@@ -1,0 +1,15 @@
+<div [formGroup]="formGroup">
+  <mat-form-field appearance="outline">
+    <mat-label>{{property.alias}}
+      <span *ngIf = "property.required" class="asterik">*</span>
+    </mat-label>
+
+    <input matInput #input
+           formControlName={{property.name}}
+           placeholder={{property.alias}}
+           type="email">
+
+    <mat-error *ngIf="formGroup.controls[property.name].invalid">{{getError()}}</mat-error>
+
+  </mat-form-field>
+</div>

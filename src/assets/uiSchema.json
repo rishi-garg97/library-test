@@ -1,0 +1,37 @@
+{
+  "type": "Normal",
+  "fields": [
+    {
+      "name": "email",
+      "enable": true
+    },
+    {
+      "name": "password",
+      "enable": true
+    },
+    {
+      "name": "protocolName",
+      "enable": true
+    },
+    {
+      "name": "documentName",
+      "enable": false
+    },
+    {
+      "name": "startingAmount",
+      "enable": false
+    },
+    {
+      "name": "labeledQuantitation",
+      "enable": true
+    },
+    {
+      "name": "fractionsAnalyzedCount",
+      "enable": true
+    },
+    {
+      "name": "columnType",
+      "enable": true
+    }
+  ]
+}

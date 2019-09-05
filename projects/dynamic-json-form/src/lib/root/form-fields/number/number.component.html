@@ -1,0 +1,24 @@
+<div [formGroup]="formGroup">
+
+  <mat-form-field appearance="outline">
+    <mat-label>
+      {{property.alias}}
+      <span *ngIf="property.required" class="asterik">*</span>
+    </mat-label>
+
+    <input  matInput
+            formControlName={{property.name}}
+            type="number"
+            [attr.min] = "property.min ? null : property.min"
+            [attr.max] = "property.max ? null : property.max"
+            placeholder={{property.alias}}>
+    <!--(change)="fieldValueChanged()">-->
+
+    <mat-error *ngIf="formGroup.controls[property.name].invalid">
+      {{getError()}}
+    </mat-error>
+
+  </mat-form-field>
+</div>
+
+<!--formControlName={{property.name}}-->

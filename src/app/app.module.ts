@@ -1,8 +1,10 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {DynamicJsonFormModule} from 'dynamic-json-form';
+import {AppRoutingModule} from './app-routing.module';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+
+import {AppComponent} from './app.component';
 
 @NgModule({
   declarations: [
@@ -10,9 +12,13 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DynamicJsonFormModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor() {
+  }
+}
