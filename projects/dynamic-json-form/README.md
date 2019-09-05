@@ -15,7 +15,7 @@ dynamic-json-form@0.1.8 is the initial working version and update previous versi
      Add angular-material theme in your global css file. By default in angular project it is styles.css
      @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-###  Resolve Json Mmodule 
+###  Resolve Json Module 
      Skip this if you use json file using http else Add this 2 properties into compiler options of tsconfig.json.
      "compilerOptions" : {
                             "resolveJsonModule": true, "esModuleInterop": true
