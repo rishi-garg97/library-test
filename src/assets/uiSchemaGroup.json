@@ -1,0 +1,74 @@
+{
+  "type": "Group",
+  "viewer": "Tab",
+  "totalSteps": 2,
+  "variants": "horizontal",
+  "steps": [
+    {
+      "sequence": 1,
+      "name": "nameOfStep1",
+      "label": "Step Label 1",
+      "description": "Little description of Step 1",
+      "enable": true,
+      "fields": [
+        {
+          "name": "email",
+          "enable": true
+        },
+        {
+          "name": "password",
+          "enable": true
+        },
+        {
+          "name": "protocolName",
+          "enable": true
+        },
+        {
+          "name": "documentName",
+          "enable": false
+        },
+        {
+          "name": "startingAmount",
+          "enable": false
+        },
+        {
+          "name": "labeledQuantitation",
+          "enable": true
+        },
+        {
+          "name": "fractionsAnalyzedCount",
+          "enable": true
+        },
+        {
+          "name": "amountOnColumn",
+          "enable": true
+        }
+      ]
+    },
+    {
+      "sequence": 2,
+      "name": "nameOfStep2",
+      "label": "Step Label 2",
+      "description": "Little description of Step 2",
+      "enable": false,
+      "fields": [
+        {
+          "name": "alkylationReagent",
+          "enable": true
+        },
+        {
+          "name": "amountOnColumn",
+          "enable": false
+        },
+        {
+          "name": "columnLength",
+          "enable": false
+        },
+        {
+          "name": "columnInnerDiameter",
+          "enable": true
+        }
+      ]
+    }
+  ]
+}

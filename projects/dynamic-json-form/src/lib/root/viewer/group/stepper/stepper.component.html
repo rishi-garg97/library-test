@@ -2,13 +2,12 @@
 
   <h4>{{uiSchema.name}}</h4>
 
-  <mat-tab-group animationDuration="0ms" #tabGroup>
+  <mat-horizontal-stepper [linear]="true" labelPosition="bottom" #stepper>
 
 
     <ng-container *ngFor="let stepControl of formGroup.controls | keyvalue;let i = index;">
 
-      <!--<mat-step [stepControl]="stepControl.value" [completed]="false">-->
-      <mat-tab [label] = "uiSchema.steps[i].label">
+      <mat-step [stepControl]="stepControl.value" [completed]="false">
         <form [formGroup]="stepControl.value" >
           <div class="row">
             <ng-container *ngFor="let property of uiSchema.steps[i].fields;">
@@ -39,7 +38,6 @@
                                      (addControl)= "addControl($event)" >
                 </lib-password>
               </div>
-
               <!--Form field for number input  -->
               <div class="form-group col-sm-6" *ngIf="property && property.dataType=='Number'" style="margin-bottom:0;">
 
@@ -81,13 +79,11 @@
             <p style="font-size:13px;"><span class="asterik" style="font-size:16px;">* </span>field are mandatory</p>
           </div>
           <div class="btn btn-toolbar">
-            <button mat-button *ngIf="i > 0"
-                    (click)="tabGroup.selectedIndex = i-1">Back</button>
+            <button mat-button matStepperPrevious *ngIf="i > 0">Back</button>
             <button
               mat-button
-              *ngIf="i < uiSchema.totalSteps-1"
-              [disabled]="!stepControl.value.valid"
-              (click)="tabGroup.selectedIndex = i+1">
+              matStepperNext
+              *ngIf="i < uiSchema.totalSteps-1">
               Next
             </button>
 
@@ -100,19 +96,15 @@
               [disabled]="!formGroup.valid">
               Submit
             </button>
-
           </div>
 
         </form>
-      </mat-tab>
 
-
-
-      <!--</mat-step>-->
+      </mat-step>
 
 
     </ng-container>
-  </mat-tab-group>
+  </mat-horizontal-stepper>
 
 </div>
 

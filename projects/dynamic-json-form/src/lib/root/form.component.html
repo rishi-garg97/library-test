@@ -1,23 +1,12 @@
-<!--<app-simple *ngIf="modifiedUiSchema.type == 'Normal' "-->
-<!--[uiSchema]="modifiedUiSchema">-->
-<!--</app-simple>-->
 
-
-<!--&lt;!&ndash;<app-accordian *ngIf="modifiedUiSchema.type =='Group'"&ndash;&gt;-->
-<!--&lt;!&ndash;[uiSchema]="modifiedUiSchema">&ndash;&gt;-->
-<!--&lt;!&ndash;</app-accordian>&ndash;&gt;-->
-
-
-<!--&lt;!&ndash;<app-step-form *ngIf="modifiedUiSchema.type =='Group'"&ndash;&gt;-->
-<!--&lt;!&ndash;[uiSchema]="modifiedUiSchema">&ndash;&gt;-->
-<!--&lt;!&ndash;</app-step-form>&ndash;&gt;-->
-
-<!--<app-tab *ngIf="modifiedUiSchema.type =='Group'"-->
-<!--[uiSchema]="modifiedUiSchema">-->
-<!--</app-tab>-->
 
 <!--for Normal view-->
 
 <lib-normal *ngIf="modifiedUiSchema.type === 'Normal'"
             [uiSchema]="modifiedUiSchema">
 </lib-normal>
+
+
+<lib-group *ngIf="modifiedUiSchema.type === 'Group'"
+           [uiSchema]="modifiedUiSchema">
+</lib-group>

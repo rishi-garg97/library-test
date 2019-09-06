@@ -1,15 +1,14 @@
-import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import {Component, OnInit, Input, OnChanges} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import _ from 'lodash';
 
 @Component({
-  selector: 'lib-accordian',
-  templateUrl: './accordian.component.html',
-  styleUrls: ['./accordian.component.css']
+  selector: 'lib-stepper',
+  templateUrl: './stepper.component.html',
+  styleUrls: ['./stepper.component.css']
 })
-export class AccordianComponent implements OnInit, OnChanges {
+export class StepperComponent implements OnInit, OnChanges {
   formGroup: FormGroup = this.formBuilder.group({});
-  step = 0;
   @Input() uiSchema: any;
 
   constructor(private formBuilder: FormBuilder) {
@@ -22,10 +21,10 @@ export class AccordianComponent implements OnInit, OnChanges {
     });
     this.formGroup = this.formBuilder.group(allSteps);
   }
+
   ngOnChanges() {
     this.formGroup = this.formBuilder.group({});  // when ui or model formSchema changes re initialize form group
   }
-
 
   addControl = (data) => {
     _.each(this.uiSchema.steps, (step) => {
@@ -47,18 +46,4 @@ export class AccordianComponent implements OnInit, OnChanges {
   reset = () => {
     this.formGroup.reset();
   }
-
-
-  setStep(index: number) {
-    this.step = index;
-  }
-
-  nextStep() {
-    this.step++;
-  }
-
-  prevStep() {
-    this.step--;
-  }
-
 }

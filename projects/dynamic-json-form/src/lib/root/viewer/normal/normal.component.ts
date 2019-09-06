@@ -26,7 +26,7 @@ export class NormalComponent implements OnInit, OnChanges {
     this.formGroup.updateValueAndValidity();
   }
   getFormValue = () => {
-    console.log(this.formGroup.getRawValue());
+    console.log('Form Value ', this.formGroup.getRawValue());
   }
 
   reset = () => {

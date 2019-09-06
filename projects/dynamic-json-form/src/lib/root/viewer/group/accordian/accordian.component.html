@@ -1,1 +1,128 @@
-<p>accordian works!</p>
+<div class="ex-form">
+
+  <h4>{{uiSchema.name}}</h4>
+
+  <div style="margin: 3% 0;">
+
+
+    <mat-accordion class="example-headers-align">
+
+      <ng-container *ngFor="let stepControl of formGroup.controls | keyvalue;let i = index;">
+
+        <mat-expansion-panel [expanded]="step === uiSchema.steps[i].sequence-1 " (opened)="setStep(uiSchema.steps[i].sequence-1)" hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <b> {{uiSchema.steps[i].label}}</b>
+            </mat-panel-title>
+            <mat-panel-description>
+              {{uiSchema.steps[i].description}}
+              <!--<mat-icon>account_circle</mat-icon>-->
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+
+          <form [formGroup]="stepControl.value" style="margin-top: 20px" >
+            <div class="row">
+              <ng-container *ngFor="let property of uiSchema.steps[i].fields;">
+                <ng-template matStepLabel  matStepperIcon="number">{{uiSchema.steps[i].label}}</ng-template>
+
+                <!--Form field for text input  -->
+
+                <div class="form-group col-sm-6" *ngIf="property && property.dataType=='String'">
+                  <lib-text [property]="property"
+                                  (addControl)= "addControl($event)" >
+                  </lib-text>
+                </div>
+
+                <!--Form field for email input  -->
+
+                <div class="form-group col-sm-6" *ngIf="property && property.dataType=='Email'">
+
+                  <lib-email  [property]="property"
+                                    (addControl)= "addControl($event)" >
+                  </lib-email>
+                </div>
+
+                <!--Form field for password input  -->
+
+                <div class="form-group col-sm-6" *ngIf="property && property.dataType=='Password'">
+
+                  <lib-password  [property]="property"
+                                       (addControl)= "addControl($event)" >
+                  </lib-password>
+                </div>
+                <!--Form field for number input  -->
+                <div class="form-group col-sm-6" *ngIf="property && property.dataType=='Number'" style="margin-bottom:0;">
+
+                  <lib-number [property]="property"
+                                    (addControl)= "addControl($event)" >
+                  </lib-number>
+
+                </div>
+
+                <!--Form field for enumeration-->
+
+                <div class="form-group col-sm-6" *ngIf="property && property.dataType=='Enumeration'"
+                     style="margin-bottom:0px;">
+                  <lib-dropdown [property]="property"
+                                (addControl)= "addControl($event)" >
+                  </lib-dropdown>
+
+                </div>
+
+                <!--Form field for Measure Datatype-->
+
+                <div class="form-group col-sm-6"
+                     *ngIf="property && property.dataType=='Measure'"
+                     style="margin-bottom:0;padding-right: 0;">
+
+
+
+                  <lib-measure
+                    [property]="property"
+                    (addControl)= "addControl($event)" >
+                  </lib-measure>
+
+                </div>
+              </ng-container>
+
+            </div>
+
+            <div>
+              <p style="font-size:13px;"><span class="asterik" style="font-size:16px;">* </span>field are mandatory</p>
+            </div>
+            <div class="btn btn-toolbar">
+              <button mat-button
+                      *ngIf="i > 0"
+                      (click)="prevStep()">
+                Back
+              </button>
+              <button
+                mat-button
+                [disabled]="!stepControl.value.valid"
+                (click)="nextStep()"
+                *ngIf="i < uiSchema.totalSteps-1">
+                Next
+              </button>
+
+              <button
+                mat-raised-button
+                type="button"
+                color="primary"
+                *ngIf= "i === uiSchema.totalSteps-1"
+                (click)="formValue()"
+                [disabled]="!formGroup.valid">
+                Submit
+              </button>
+            </div>
+
+          </form>
+
+        </mat-expansion-panel>
+
+      </ng-container>
+
+    </mat-accordion>
+  </div>
+
+</div>

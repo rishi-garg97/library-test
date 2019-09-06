@@ -1,0 +1,12 @@
+<div style="margin-bottom: 10px;">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>UI Schema</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+
+      <json-editor [options]="uiSchemaEditorOptions" [data]="uiEditorData" (keyup)="getData($event)"></json-editor>
+    </mat-card-content>
+  </mat-card>
+</div>

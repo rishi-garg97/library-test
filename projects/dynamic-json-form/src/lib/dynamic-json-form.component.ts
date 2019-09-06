@@ -1,24 +1,31 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'lib-dynamic-json-form',
   template: `
-    <lib-form [modelSchema]="modelSchema"
-              [uiSchema]="uiSchema"
-              [errorMessageSchema]="errorMessageSchema">
-    </lib-form>
+    <lib-editor [modelEditorData]="modelSchema"
+                [uiEditorData]="uiSchema"
+                [errorEditorData]="errorSchema">
+    </lib-editor>
+    <!--<lib-form [modelSchema]="modelSchema"-->
+              <!--[uiSchema]="uiSchema"-->
+              <!--[errorMessageSchema]="errorMessageSchema">-->
+    <!--</lib-form>-->
   `,
   styles: []
 })
-export class DynamicJsonFormComponent implements OnInit {
+export class DynamicJsonFormComponent implements OnInit, OnChanges {
   @Input() modelSchema;
   @Input() uiSchema;
-  @Input() errorMessageSchema;
+  @Input() errorSchema;
 
   constructor() {
   }
 
   ngOnInit() {
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
   }
 
 }

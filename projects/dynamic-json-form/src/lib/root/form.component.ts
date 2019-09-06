@@ -11,15 +11,18 @@ export class FormComponent implements OnInit, OnChanges {
 
   @Input() modelSchema;
   @Input() uiSchema;
-  modifiedUiSchema;
   @Input() errorMessageSchema;
+
+  modifiedUiSchema;
   constructor(private validationMessageGenerator: ValidationMessageGeneratorService) { }
 
   ngOnInit() {
     this.initialize();
   }
 
-  ngOnChanges(changes: SimpleChanges): void {}
+  ngOnChanges(changes: SimpleChanges): void {
+    this.initialize();
+  }
 
 
   private initialize() {
@@ -36,7 +39,6 @@ export class FormComponent implements OnInit, OnChanges {
     }
     this.modifiedUiSchema = uiSchema;
     this.modifiedUiSchema.name = this.modelSchema.name;
-    console.log('Modified Schema From ', this.modifiedUiSchema);
   }
 
   formatFields = (schema: any) => {

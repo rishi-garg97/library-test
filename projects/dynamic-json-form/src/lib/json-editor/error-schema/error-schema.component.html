@@ -1,0 +1,9 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Error Schema</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <json-editor [options]="errorSchemaEditorOptions" [data]="errorEditorData" (keyup)="getData($event)"></json-editor>
+  </mat-card-content>
+</mat-card>

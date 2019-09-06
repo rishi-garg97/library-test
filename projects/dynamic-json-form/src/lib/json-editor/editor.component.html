@@ -1,0 +1,40 @@
+<!--<lib-ui-schema [uiEditorData]="uiEditorData">-->
+<!--</lib-ui-schema>-->
+
+
+<div class="row">
+
+
+
+  <div class="col-sm-6">
+    <div>
+
+      <lib-model-schema [modelEditorData]="modifiedModelEditorData"
+                        (modelEditorChange)="modelEditorChange($event)">
+      </lib-model-schema>
+
+    </div>
+    <div>
+      <lib-ui-schema [uiEditorData]="modifiedUiEditorData"
+                      (uiEditorChange)="uiEditorChange($event)">
+      </lib-ui-schema>
+
+    </div>
+
+
+
+    <lib-error-schema [errorEditorData]="modifiedErrorEditorData"
+                      (errorEditorChange)="errorEditorChange($event)">
+    </lib-error-schema>
+
+  </div>
+
+  <div class="col-sm-6">
+    <lib-form [modelSchema]="modifiedModelEditorData"
+              [uiSchema]="modifiedUiEditorData"
+              [errorMessageSchema]="modifiedErrorEditorData">
+    </lib-form>
+
+
+  </div>
+</div>
