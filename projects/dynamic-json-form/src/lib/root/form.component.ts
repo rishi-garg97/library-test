@@ -11,7 +11,7 @@ export class FormComponent implements OnInit, OnChanges {
 
   @Input() modelSchema;
   @Input() uiSchema;
-  @Input() errorMessageSchema;
+  @Input() errorSchema;
 
   modifiedUiSchema;
   constructor(private validationMessageGenerator: ValidationMessageGeneratorService) { }
@@ -28,7 +28,7 @@ export class FormComponent implements OnInit, OnChanges {
   private initialize() {
     const uiSchema: any = Object.assign({}, this.uiSchema);
 
-    this.validationMessageGenerator.validationMessage = this.errorMessageSchema;
+    this.validationMessageGenerator.validationMessage = this.errorSchema;
 
     if (uiSchema.type === 'Normal') {
       uiSchema.fields = this.formatFields(uiSchema);

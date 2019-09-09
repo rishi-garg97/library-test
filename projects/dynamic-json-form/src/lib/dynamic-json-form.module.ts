@@ -43,7 +43,7 @@ import { ErrorSchemaComponent } from './json-editor/error-schema/error-schema.co
     MatExpansionModule,
     NgJsonEditorModule
   ],
-  exports: [DynamicJsonFormComponent]
+  exports: [FormComponent, EditorComponent]
 })
 export class DynamicJsonFormModule {
   constructor() {

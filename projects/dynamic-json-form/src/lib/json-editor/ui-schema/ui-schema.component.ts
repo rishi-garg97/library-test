@@ -31,7 +31,7 @@ export class UiSchemaComponent implements OnInit, OnChanges {
     console.log('Old UI Schema', this.uiEditorData);
   }
 
-  getData(event) {
+  getData() {
     if (this.editor.isValidJson()) {
       this.uiEditorChange.emit(this.editor.get());
     } else {

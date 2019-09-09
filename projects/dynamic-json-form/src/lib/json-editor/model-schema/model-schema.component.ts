@@ -14,23 +14,26 @@ export class ModelSchemaComponent implements OnInit {
   @Output() public modelEditorChange = new EventEmitter();
 
   public modelSchemaEditorOptions: JsonEditorOptions;
+  data: any;
 
   constructor() {
     this.modelSchemaEditorOptions = new JsonEditorOptions();
     this.modelSchemaEditorOptions.mode = 'code';
-  }
+    this.modelSchemaEditorOptions.onChange = () => this.data = this.editor.get();
+    console.log('From Constructor', this.data);
 
+  }
 
   ngOnInit() {
     console.log('Old model Schema', this.modelEditorData);
   }
 
-  getData(event) {
+  getData() {
     if (this.editor.isValidJson()) {
-      this.modelEditorChange.emit(this.editor.get());
       console.log('correct');
+      this.modelEditorChange.emit(this.editor.get());
     } else {
-      console.log('UI Schema is incorrect');
+      console.log('model Schema is incorrect');
     }
   }
 

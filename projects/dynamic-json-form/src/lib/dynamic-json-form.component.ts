@@ -7,10 +7,10 @@ import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core'
                 [uiEditorData]="uiSchema"
                 [errorEditorData]="errorSchema">
     </lib-editor>
-    <!--<lib-form [modelSchema]="modelSchema"-->
-              <!--[uiSchema]="uiSchema"-->
-              <!--[errorMessageSchema]="errorMessageSchema">-->
-    <!--</lib-form>-->
+    <lib-form [modelSchema]="modelSchema"
+              [uiSchema]="uiSchema"
+              [errorSchema]="errorSchema">
+    </lib-form>
   `,
   styles: []
 })

@@ -6,33 +6,28 @@
 
 
 
-  <div class="col-sm-6">
-    <div>
+  <div class="col-sm-6" style="padding: 1% 1% 2% 3%">
 
-      <lib-model-schema [modelEditorData]="modifiedModelEditorData"
+      <lib-model-schema [modelEditorData]="modelEditorData"
                         (modelEditorChange)="modelEditorChange($event)">
       </lib-model-schema>
 
-    </div>
-    <div>
-      <lib-ui-schema [uiEditorData]="modifiedUiEditorData"
+
+      <lib-ui-schema [uiEditorData]="uiEditorData"
                       (uiEditorChange)="uiEditorChange($event)">
       </lib-ui-schema>
 
-    </div>
-
-
-
-    <lib-error-schema [errorEditorData]="modifiedErrorEditorData"
-                      (errorEditorChange)="errorEditorChange($event)">
-    </lib-error-schema>
+      <lib-error-schema [errorEditorData]="errorEditorData"
+                        (errorEditorChange)="errorEditorChange($event)">
+      </lib-error-schema>
 
   </div>
 
   <div class="col-sm-6">
+
     <lib-form [modelSchema]="modifiedModelEditorData"
               [uiSchema]="modifiedUiEditorData"
-              [errorMessageSchema]="modifiedErrorEditorData">
+              [errorSchema]="modifiedErrorEditorData">
     </lib-form>
 
 

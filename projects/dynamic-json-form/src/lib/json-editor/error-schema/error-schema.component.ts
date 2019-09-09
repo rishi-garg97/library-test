@@ -25,12 +25,12 @@ export class ErrorSchemaComponent implements OnInit {
     console.log('Old model Schema', this.errorEditorData);
   }
 
-  getData(event) {
+  getData() {
     if (this.editor.isValidJson()) {
       this.errorEditorChange.emit(this.editor.get());
       console.log('correct');
     } else {
-      console.log('UI Schema is incorrect');
+      console.log('Error Schema is incorrect');
     }
   }
 
