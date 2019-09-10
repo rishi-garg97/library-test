@@ -1,6 +1,7 @@
 {
   "type": "Normal",
   "fields": [
+
     {
       "name": "email",
       "enable": true
@@ -23,6 +24,10 @@
     },
     {
       "name": "labeledQuantitation",
+      "enable": true
+    },
+    {
+      "name": "gender",
       "enable": true
     },
     {

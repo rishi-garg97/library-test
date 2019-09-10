@@ -2,6 +2,22 @@
   "name": "Protocol",
   "properties": [
     {
+      "dataType": "Radio",
+      "name": "gender",
+      "alias": "Gender",
+      "required": true,
+      "array": false,
+      "delimiter": null,
+      "values": [
+        "Male",
+        "Female"
+      ],
+      "unique": null,
+      "dynamic": true,
+      "sequence": null,
+      "isArray": false
+    },
+    {
       "dataType": "Email",
       "name": "email",
       "alias": "Email",

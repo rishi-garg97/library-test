@@ -31,12 +31,13 @@ export class EmailComponent implements OnInit {
 
     this.formGroup = this.formBuilder.group({
       [this.property.name]: [{
-        value: "",
+        value: '',
         disabled: !this.property.enable
       }, validators]
     });
     this.formGroup.updateValueAndValidity();
     this.addControl.emit({key: this.property.name, value: this.formGroup});
+    console.log('Email Form Group ', this.formGroup);
   }
   getError = () => {
     return this.validationMessageGenerator.errorMessage(this.formGroup, this.property);

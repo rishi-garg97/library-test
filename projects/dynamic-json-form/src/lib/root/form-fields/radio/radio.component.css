@@ -1,0 +1,50 @@
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 6px;
+}
+
+/* red color for asterik in required field*/
+.asterik{
+  color: red;
+}
+
+.radio {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  color: #5f7979;
+  height: 38px;
+  margin: 4px 1px 0 1px;
+}
+.radioError{
+  border: 2px solid red;
+  border-radius: 5px;
+  height: 38px;
+  margin: 4px 1px 0 1px;
+}
+
+div:hover {
+  border: 2px solid black;
+}
+
+::ng-deep .mat-radio-label > .mat-radio-label-content {
+-webkit-user-select: auto;
+-moz-user-select: auto;
+-ms-user-select: auto;
+user-select: auto;
+display: inline-block;
+order: 0;
+line-height: inherit;
+padding-left: 2px;
+padding-right: 0;
+}
+
+.error{
+       color: #f44336;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  margin-left: 12px;
+  font-size: 75%;
+}
+
+.matRadio {
+  padding: 5px 12px;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+}

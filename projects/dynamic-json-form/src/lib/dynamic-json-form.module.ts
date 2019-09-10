@@ -5,6 +5,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {AngularMaterialModule} from './root/dependent-module/angular-material/angular-material.module';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatRadioModule} from '@angular/material/radio';
+
 import { NgJsonEditorModule } from 'ang-jsoneditor';
 
 
@@ -26,13 +28,14 @@ import { ModelSchemaComponent } from './json-editor/model-schema/model-schema.co
 import { UiSchemaComponent } from './json-editor/ui-schema/ui-schema.component';
 import { EditorComponent } from './json-editor/editor.component';
 import { ErrorSchemaComponent } from './json-editor/error-schema/error-schema.component';
+import { RadioComponent } from './root/form-fields/radio/radio.component';
 
 
 @NgModule({
   declarations: [DynamicJsonFormComponent,
     FormComponent, TextComponent, NumberComponent,
     DropdownComponent, NormalComponent, AccordianComponent,
-    TabComponent, EmailComponent, PasswordComponent, MeasureComponent, GroupComponent, StepperComponent, ModelSchemaComponent, UiSchemaComponent, EditorComponent, ErrorSchemaComponent],
+    TabComponent, EmailComponent, PasswordComponent, MeasureComponent, GroupComponent, StepperComponent, ModelSchemaComponent, UiSchemaComponent, EditorComponent, ErrorSchemaComponent, RadioComponent],
   imports: [
     HttpClientModule,
     CommonModule,
@@ -41,7 +44,8 @@ import { ErrorSchemaComponent } from './json-editor/error-schema/error-schema.co
     AngularMaterialModule,
     MatTabsModule,
     MatExpansionModule,
-    NgJsonEditorModule
+    NgJsonEditorModule,
+    MatRadioModule
   ],
   exports: [FormComponent, EditorComponent]
 })
