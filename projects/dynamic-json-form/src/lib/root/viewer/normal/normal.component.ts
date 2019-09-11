@@ -14,7 +14,6 @@ export class NormalComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-
   }
 
   ngOnChanges() {

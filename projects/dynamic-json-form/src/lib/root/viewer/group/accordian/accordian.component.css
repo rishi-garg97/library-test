@@ -1,6 +1,9 @@
-/*.mat-form-field{*/
-/*width: 100%;*/
-/*}*/
+.jumbotron{
+  background-color: #f8f9fa;
+  padding: 15px;
+  margin-top: 56px;
+
+}
 
 /* Minimize the height of mat-field */
 
@@ -29,11 +32,11 @@
 
 .ex-form{
   background:#fff;
-  box-shadow: 0px 1px 2px 2px rgba(0,0,0,.14);
-  padding: 30px;
-  margin: 5% 20%;
+  box-shadow: 0 2px 6px 4px rgba(0,0,0,.14);
+  border-radius: 15px;
+  margin: 3% 3%;
+  padding: 20px;
 }
-
 
 
 .padding-right-zero{
@@ -42,9 +45,4 @@
 
 .padding-zero{
   padding: 0;
-}
-
-
-mat-expansion-panel {
-  margin-bottom: 20px;
 }

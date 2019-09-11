@@ -2,13 +2,13 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import {AngularMaterialModule} from './root/dependent-module/angular-material/angular-material.module';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatRadioModule} from '@angular/material/radio';
-
 import { NgJsonEditorModule } from 'ang-jsoneditor';
 
+
+import {AngularMaterialModule} from './root/dependent-module/angular-material/angular-material.module';
 
 
 import {DynamicJsonFormComponent} from './dynamic-json-form.component';
@@ -32,10 +32,25 @@ import { RadioComponent } from './root/form-fields/radio/radio.component';
 
 
 @NgModule({
-  declarations: [DynamicJsonFormComponent,
-    FormComponent, TextComponent, NumberComponent,
-    DropdownComponent, NormalComponent, AccordianComponent,
-    TabComponent, EmailComponent, PasswordComponent, MeasureComponent, GroupComponent, StepperComponent, ModelSchemaComponent, UiSchemaComponent, EditorComponent, ErrorSchemaComponent, RadioComponent],
+  declarations: [
+    DynamicJsonFormComponent,
+    FormComponent,
+    TextComponent,
+    NumberComponent,
+    DropdownComponent,
+    NormalComponent,
+    AccordianComponent,
+    TabComponent,
+    EmailComponent,
+    PasswordComponent,
+    MeasureComponent,
+    GroupComponent,
+    StepperComponent,
+    ModelSchemaComponent,
+    UiSchemaComponent,
+    EditorComponent,
+    ErrorSchemaComponent,
+    RadioComponent],
   imports: [
     HttpClientModule,
     CommonModule,

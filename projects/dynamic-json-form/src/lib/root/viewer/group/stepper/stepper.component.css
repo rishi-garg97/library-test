@@ -5,10 +5,6 @@
 
 }
 
-/*.mat-form-field{*/
-/*width: 100%;*/
-/*}*/
-
 /* Minimize the height of mat-field */
 
 ::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.35em 0px  !important;}
@@ -38,8 +34,8 @@
   background:#fff;
   box-shadow: 0 2px 6px 4px rgba(0,0,0,.14);
   border-radius: 15px;
+  margin: 3% 3%;
   padding: 20px;
-  margin: 5% 20%;
 }
 
 
@@ -49,7 +45,4 @@
 
 .padding-zero{
   padding: 0;
-}
-::ng-deep .mat-horizontal-stepper-header{
-  pointer-events: none !important;
 }

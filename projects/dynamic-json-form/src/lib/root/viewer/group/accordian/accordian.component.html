@@ -84,6 +84,16 @@
                   </lib-measure>
 
                 </div>
+
+                <!--Form field for radio button-->
+
+                <div class="form-group col-sm-6" *ngIf="property && property.dataType=='Radio'"
+                     style="margin-bottom:0px;">
+                  <lib-radio [property]="property"
+                             (addControl)="addControl($event)">
+                  </lib-radio>
+
+                </div>
               </ng-container>
 
             </div>

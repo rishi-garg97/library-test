@@ -1,8 +1,7 @@
 {
   "type": "Group",
-  "viewer": "Tab",
+  "viewer": "Stepper",
   "totalSteps": 2,
-  "variants": "horizontal",
   "steps": [
     {
       "sequence": 1,
@@ -17,6 +16,10 @@
         },
         {
           "name": "password",
+          "enable": true
+        },
+        {
+          "name": "gender",
           "enable": true
         },
         {

@@ -33,7 +33,6 @@ export class RadioComponent implements OnInit {
     });
     this.formGroup.updateValueAndValidity();
     this.addControl.emit({key: this.property.name, value: this.formGroup});
-    console.log('Radio Form Group ', this.formGroup);
   }
   getError = () => {
    return this.validationMessageGenerator.errorMessage(this.formGroup, this.property);

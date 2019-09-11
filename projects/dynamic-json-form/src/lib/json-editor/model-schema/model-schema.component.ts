@@ -20,12 +20,11 @@ export class ModelSchemaComponent implements OnInit {
     this.modelSchemaEditorOptions = new JsonEditorOptions();
     this.modelSchemaEditorOptions.mode = 'code';
     this.modelSchemaEditorOptions.onChange = () => this.data = this.editor.get();
-    console.log('From Constructor', this.data);
 
   }
 
   ngOnInit() {
-    console.log('Old model Schema', this.modelEditorData);
+    // console.log('Old model Schema', this.modelEditorData);
   }
 
   getData() {

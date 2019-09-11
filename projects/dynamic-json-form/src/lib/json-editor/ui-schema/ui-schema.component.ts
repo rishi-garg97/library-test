@@ -23,16 +23,17 @@ export class UiSchemaComponent implements OnInit, OnChanges {
     this.uiSchemaEditorOptions.mode = 'code';
   }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(this.uiEditorData);
+    // console.log(this.uiEditorData);
   }
 
 
   ngOnInit() {
-    console.log('Old UI Schema', this.uiEditorData);
+    // console.log('Old UI Schema', this.uiEditorData);
   }
 
   getData() {
     if (this.editor.isValidJson()) {
+      console.log("Ui Schema is correct");
       this.uiEditorChange.emit(this.editor.get());
     } else {
       console.log('UI Schema is incorrect');

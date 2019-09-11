@@ -7,8 +7,10 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class GroupComponent implements OnInit {
 
+
   constructor() { }
   @Input() uiSchema;
+
 
   ngOnInit() {
   }

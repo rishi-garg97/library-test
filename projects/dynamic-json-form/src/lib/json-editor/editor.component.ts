@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import _ from 'lodash';
 
 @Component({
   selector: 'lib-editor',
@@ -12,13 +13,17 @@ export class EditorComponent implements OnInit {
   @Input()uiEditorData;
   @Input()errorEditorData;
 
+
+  inputUiEditorData;
+
   modifiedModelEditorData;  // when changes occur in model editor
   modifiedUiEditorData;   // when changes occur in ui editor
   modifiedErrorEditorData; // when changes occur in error editor
 
   ngOnInit() {
     this.modifiedModelEditorData = this.modelEditorData;
-    this.modifiedUiEditorData = this.uiEditorData;
+    this.inputUiEditorData = _.cloneDeep(this.uiEditorData);
+    this.modifiedUiEditorData =  _.cloneDeep(this.uiEditorData);
     this.modifiedErrorEditorData = this.errorEditorData;
   }
 

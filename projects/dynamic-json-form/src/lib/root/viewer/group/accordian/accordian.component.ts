@@ -1,6 +1,7 @@
 import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import _ from 'lodash';
+import { GroupService} from '../group.service';
 
 @Component({
   selector: 'lib-accordian',
@@ -12,32 +13,19 @@ export class AccordianComponent implements OnInit, OnChanges {
   step = 0;
   @Input() uiSchema: any;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private groupService: GroupService ) {
   }
   ngOnInit() {
-    const allSteps = [];
-    const steps = _.range(this.uiSchema.totalSteps);
-    steps.forEach((step) => {
-      allSteps[step] = this.formBuilder.group({});
-    });
-    this.formGroup = this.formBuilder.group(allSteps);
+    // this.formGroup = this.groupService.buildStepFormGroup(this.uiSchema);
   }
+
   ngOnChanges() {
-    this.formGroup = this.formBuilder.group({});  // when ui or model formSchema changes re initialize form group
+    this.formGroup = this.groupService.buildStepFormGroup(this.uiSchema);
   }
 
 
   addControl = (data) => {
-    _.each(this.uiSchema.steps, (step) => {
-      const matchedField = _.find(step.fields, (field) => {
-        return field.name === data.key;
-      });
-      if (matchedField) {
-        const fc: any = this.formGroup.controls[step.sequence - 1];
-        fc.addControl(data.key, data.value);
-        this.formGroup.updateValueAndValidity();
-      }
-    });
+    this.groupService.addFormControl(data, this.uiSchema, this.formGroup);
   }
 
   formValue = () => {
