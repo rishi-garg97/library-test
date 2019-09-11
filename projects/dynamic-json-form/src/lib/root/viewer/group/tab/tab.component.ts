@@ -1,6 +1,5 @@
 import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import _ from 'lodash';
 import { GroupService} from '../group.service';
 @Component({
   selector: 'lib-tab',
