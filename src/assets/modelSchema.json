@@ -2,6 +2,16 @@
   "name": "Protocol",
   "properties": [
     {
+      "dataType": "date",
+      "name": "date",
+      "alias": "Date Of Birth",
+      "required": true,
+      "array": false,
+      "delimiter": null,
+      "sequence": null,
+      "isArray": false
+    },
+    {
       "dataType": "Radio",
       "name": "gender",
       "alias": "Gender",
@@ -10,7 +20,8 @@
       "delimiter": null,
       "values": [
         "Male",
-        "Female"
+        "Female",
+        "Other"
       ],
       "unique": null,
       "dynamic": true,

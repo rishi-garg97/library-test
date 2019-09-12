@@ -1,26 +1,29 @@
 <div [formGroup]="formGroup"
-              class="matRadio"
-              [ngClass]="errorClass()?'radioError':'radio'">
+     class="matRadio row"
+     [ngClass]="errorClass()?'radioError':'radio'">
 
+ <div class="col-sm-4" style="padding-right: 0">
+   <label id="example-radio-group-label"
+          [ngStyle]="{'color': errorClass() ? '#f44336' : '' }">
+     {{property.alias}} <span *ngIf="property.required" class="asterik">*</span>
+   </label>
+   &nbsp;
+ </div>
+  <div class="col-sm-8" style="padding-left: 0">
+    <mat-radio-group
+      aria-labelledby="example-radio-group-label"
+      formControlName={{property.name}}>
 
-  <label id="example-radio-group-label"
-         [ngStyle]="{'color': errorClass() ? '#f44336' : '' }">
-    {{property.alias}}&nbsp;
-  </label>
-  <span *ngIf="property.required" class="asterik">*</span>
-  &nbsp;
-  <mat-radio-group
-    aria-labelledby="example-radio-group-label"
-    formControlName={{property.name}}>
+      <mat-radio-button class="example-radio-button" *ngFor="let opt of property.values" [value]="opt">
+        {{opt}}
+      </mat-radio-button>
 
-    <mat-radio-button class="example-radio-button" *ngFor="let opt of property.values" [value]="opt">
-      {{opt}}
-    </mat-radio-button>
+    </mat-radio-group>
+  </div>
 
-  </mat-radio-group>
+  <div *ngIf="errorClass()" class="error">
+    {{property.alias}} is required.
+  </div>
 
 </div>
 
-<span *ngIf="errorClass()" class="error">
-    {{property.alias}} is required.
-  </span>

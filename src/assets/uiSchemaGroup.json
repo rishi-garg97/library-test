@@ -15,6 +15,10 @@
           "enable": true
         },
         {
+          "name": "date",
+          "enable": true
+        },
+        {
           "name": "password",
           "enable": true
         },

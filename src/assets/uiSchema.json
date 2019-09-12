@@ -1,9 +1,12 @@
 {
   "type": "Normal",
   "fields": [
-
     {
       "name": "email",
+      "enable": true
+    },
+    {
+      "name": "date",
       "enable": true
     },
     {

@@ -1,0 +1,19 @@
+<div [formGroup]="formGroup">
+  <mat-form-field appearance="outline">
+    <mat-label>{{property.alias}}
+      <span *ngIf = "property.required" class="asterik">*</span>
+    </mat-label>
+
+    <input matInput
+           [disabled]="true"
+           formControlName={{property.name}}
+           placeholder={{property.alias}}
+           [matDatepicker]="dp3">
+    <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+    <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+
+
+    <mat-error *ngIf="formGroup.controls[property.name].invalid">{{getError()}}</mat-error>
+
+  </mat-form-field>
+</div>

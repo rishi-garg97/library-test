@@ -6,6 +6,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatRadioModule} from '@angular/material/radio';
 import { NgJsonEditorModule } from 'ang-jsoneditor';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
 import {AngularMaterialModule} from './root/dependent-module/angular-material/angular-material.module';
@@ -29,6 +30,7 @@ import { UiSchemaComponent } from './json-editor/ui-schema/ui-schema.component';
 import { EditorComponent } from './json-editor/editor.component';
 import { ErrorSchemaComponent } from './json-editor/error-schema/error-schema.component';
 import { RadioComponent } from './root/form-fields/radio/radio.component';
+import { DateComponent } from './root/form-fields/date/date.component';
 
 
 @NgModule({
@@ -50,7 +52,8 @@ import { RadioComponent } from './root/form-fields/radio/radio.component';
     UiSchemaComponent,
     EditorComponent,
     ErrorSchemaComponent,
-    RadioComponent],
+    RadioComponent,
+    DateComponent],
   imports: [
     HttpClientModule,
     CommonModule,
@@ -60,7 +63,8 @@ import { RadioComponent } from './root/form-fields/radio/radio.component';
     MatTabsModule,
     MatExpansionModule,
     NgJsonEditorModule,
-    MatRadioModule
+    MatRadioModule,
+    MatDatepickerModule
   ],
   exports: [FormComponent, EditorComponent]
 })
