@@ -1,6 +1,6 @@
 # DynamicJsonForm
 
-dynamic-json-form@0.1.8 is the initial working version and update previous version if you had installed.
+dynamic-json-form@0.3.0 is the stable version.
  
 ## Steps to use
 
