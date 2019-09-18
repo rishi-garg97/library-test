@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import _ from 'lodash';
 
 @Component({
@@ -12,7 +12,7 @@ export class EditorComponent implements OnInit {
   @Input()modelEditorData;
   @Input()uiEditorData;
   @Input()errorEditorData;
-
+  @Output()formStateChanged = new EventEmitter();
 
   inputUiEditorData;
 
@@ -39,5 +39,9 @@ export class EditorComponent implements OnInit {
     this.modifiedErrorEditorData = data;
   }
 
+  formStateChange = (change) => {
+    this.formStateChanged.emit(change);
+    // this.formStateChanged.emit([{key: change[0].key , value: change[0].value}, {key: change[1].key , value: change[1].value}]);
+  }
 
 }

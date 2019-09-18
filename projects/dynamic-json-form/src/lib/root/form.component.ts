@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {ValidationMessageGeneratorService} from './validators/validation-message-generator.service';
 import _ from 'lodash';
 
@@ -12,6 +12,7 @@ export class FormComponent implements OnInit, OnChanges {
   @Input() modelSchema;
   @Input() uiSchema;
   @Input() errorSchema;
+  @Output() public formStateChange = new EventEmitter();
 
   modifiedUiSchema;
   constructor(private validationMessageGenerator: ValidationMessageGeneratorService) { }
@@ -31,6 +32,10 @@ export class FormComponent implements OnInit, OnChanges {
     }
   }
 
+  formStateChanged = (change) => {
+    this.formStateChange.emit({event: 'Form State Changed', value: change});
+  }
+
 
   private initialize() {
     const uiSchema: any = Object.assign({}, this.uiSchema);
@@ -46,6 +51,9 @@ export class FormComponent implements OnInit, OnChanges {
     }
     this.modifiedUiSchema = uiSchema;
     this.modifiedUiSchema.name = this.modelSchema.name;
+    if (this.modelSchema.viewer) {
+      this.modifiedUiSchema.viewer = this.modelSchema.viewer;
+    }
   }
 
   formatFields = (schema: any) => {

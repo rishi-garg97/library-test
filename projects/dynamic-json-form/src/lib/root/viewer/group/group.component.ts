@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'lib-group',
@@ -6,13 +6,17 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./group.component.css']
 })
 export class GroupComponent implements OnInit {
+  constructor() {
+  }
 
-
-  constructor() { }
   @Input() uiSchema;
+  @Output() formStateChange = new EventEmitter();
 
 
   ngOnInit() {
   }
 
+  formStateChanged = (change) => {
+    this.formStateChange.emit(change);
+  }
 }

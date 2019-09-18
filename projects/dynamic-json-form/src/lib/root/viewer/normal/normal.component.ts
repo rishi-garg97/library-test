@@ -1,5 +1,6 @@
-import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import _ from 'lodash';
 
 @Component({
   selector: 'lib-normal',
@@ -9,11 +10,14 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 export class NormalComponent implements OnInit, OnChanges {
   formGroup: FormGroup = this.formBuilder.group({});
   @Input() uiSchema;
+  @Output() public formStateChange = new EventEmitter();
+
 
   constructor(private formBuilder: FormBuilder) {
   }
 
   ngOnInit() {
+    // console.log(this.uiSchema);
   }
 
   ngOnChanges() {
@@ -25,7 +29,13 @@ export class NormalComponent implements OnInit, OnChanges {
     this.formGroup.updateValueAndValidity();
   }
   getFormValue = () => {
-    console.log('Form Value ', this.formGroup.getRawValue());
+    let rawValues = this.formGroup.getRawValue();
+    rawValues = _.map(rawValues, (rawVal, key) => {
+      return {[`${key}Control`]: rawVal};
+    });
+    this.formStateChange.emit([{formType: this.uiSchema.type},
+      {formName: this.uiSchema.name},
+      {formValue: rawValues}]);
   }
 
   reset = () => {

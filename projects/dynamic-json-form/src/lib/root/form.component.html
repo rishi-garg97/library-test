@@ -3,10 +3,12 @@
 <!--for Normal view-->
 
 <lib-normal *ngIf="modifiedUiSchema.type === 'Normal'"
-            [uiSchema]="modifiedUiSchema">
+            [uiSchema]="modifiedUiSchema"
+            (formStateChange)="formStateChanged($event)">
 </lib-normal>
 
 
 <lib-group *ngIf="modifiedUiSchema.type === 'Group'"
-           [uiSchema]="modifiedUiSchema">
+           [uiSchema]="modifiedUiSchema"
+           (formStateChange)="formStateChanged($event)">
 </lib-group>

@@ -1,13 +1,16 @@
 <lib-tab *ngIf="uiSchema.viewer =='Tab'"
-         [uiSchema]="uiSchema">
+         [uiSchema]="uiSchema"
+         (formStateChange)="formStateChanged($event)">
 </lib-tab>
 
 
 <lib-accordian *ngIf="uiSchema.viewer =='Accordian'"
-               [uiSchema]="uiSchema">
+               [uiSchema]="uiSchema"
+               (formStateChange)="formStateChanged($event)">
 </lib-accordian>
 
 
 <lib-stepper *ngIf="uiSchema.viewer =='Stepper'"
-             [uiSchema]="uiSchema">
+             [uiSchema]="uiSchema"
+             (formStateChange)="formStateChanged($event)">
 </lib-stepper>

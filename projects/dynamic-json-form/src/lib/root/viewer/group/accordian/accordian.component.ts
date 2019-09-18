@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import _ from 'lodash';
 import { GroupService} from '../group.service';
@@ -12,6 +12,7 @@ export class AccordianComponent implements OnInit, OnChanges {
   formGroup: FormGroup = this.formBuilder.group({});
   step = 0;
   @Input() uiSchema: any;
+  @Output() public formStateChange = new EventEmitter();
 
   constructor(private formBuilder: FormBuilder, private groupService: GroupService ) {
   }
@@ -29,7 +30,18 @@ export class AccordianComponent implements OnInit, OnChanges {
   }
 
   formValue = () => {
-    console.log('Form Value ', this.formGroup.getRawValue());
+    const value = this.formGroup.getRawValue();
+    const newValue = [];
+    _.each(value, (rawValues) => {
+      rawValues = _.map(rawValues, (rawVal, key) => {
+        return {[`${key}Control`]: rawVal};
+      });
+      newValue.push(rawValues);
+    });
+    this.formStateChange.emit([{formType: this.uiSchema.type},
+      {formName: this.uiSchema.name},
+      {formViewer: this.uiSchema.viewer},
+      {formValue: newValue}]);
   }
 
   reset = () => {

@@ -1,6 +1,6 @@
 {
   "type": "Group",
-  "viewer": "Stepper",
+  "viewer": "Tab",
   "totalSteps": 2,
   "steps": [
     {

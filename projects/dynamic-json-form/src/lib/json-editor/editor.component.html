@@ -27,7 +27,8 @@
 
     <lib-form [modelSchema]="modifiedModelEditorData"
               [uiSchema]="modifiedUiEditorData"
-              [errorSchema]="modifiedErrorEditorData">
+              [errorSchema]="modifiedErrorEditorData"
+              (formStateChange)="formStateChange($event)">
     </lib-form>
 
 
