@@ -30,17 +30,19 @@ export class StepperComponent implements OnInit, OnChanges {
 
   formValue = () => {
     const value = this.formGroup.getRawValue();
-    const newValue = [];
-    _.each(value, (rawValues) => {
+    const newValue = {};
+    _.each(value, (rawValues, index) => {
       rawValues = _.map(rawValues, (rawVal, key) => {
         return {[`${key}Control`]: rawVal};
       });
-      newValue.push(rawValues);
+      newValue[`${this.uiSchema.viewer} ${index}`] = rawValues;
     });
-    this.formStateChange.emit([{formType: this.uiSchema.type},
-      {formName: this.uiSchema.name},
-      {formViewer: this.uiSchema.viewer},
-      {formValue: newValue}]);
+    this.formStateChange.emit({
+      formType: this.uiSchema.type,
+      formName: this.uiSchema.name,
+      formViewer: this.uiSchema.viewer,
+      formValue: newValue
+    });
   }
 
   reset = () => {

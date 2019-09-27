@@ -3,7 +3,9 @@ import {NgModule} from '@angular/core';
 import {DynamicJsonFormModule} from 'dynamic-json-form';
 import {AppRoutingModule} from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 
+import { GraphQLModule } from './graphql/graphql.module';
 
 import {AppComponent} from './app.component';
 
@@ -15,6 +17,9 @@ import {AppComponent} from './app.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    GraphQLModule,
     DynamicJsonFormModule
   ],
   providers: [],

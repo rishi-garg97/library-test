@@ -33,7 +33,7 @@ export class FormComponent implements OnInit, OnChanges {
   }
 
   formStateChanged = (change) => {
-    this.formStateChange.emit({event: 'Form State Changed', value: change});
+    this.formStateChange.emit(change);
   }
 
 

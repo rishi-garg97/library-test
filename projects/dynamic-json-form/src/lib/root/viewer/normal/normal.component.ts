@@ -33,9 +33,9 @@ export class NormalComponent implements OnInit, OnChanges {
     rawValues = _.map(rawValues, (rawVal, key) => {
       return {[`${key}Control`]: rawVal};
     });
-    this.formStateChange.emit([{formType: this.uiSchema.type},
-      {formName: this.uiSchema.name},
-      {formValue: rawValues}]);
+    this.formStateChange.emit({formType: this.uiSchema.type,
+      formName: this.uiSchema.name,
+      formValue: rawValues});
   }
 
   reset = () => {

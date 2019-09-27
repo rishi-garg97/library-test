@@ -1,6 +1,6 @@
 {
   "type": "Group",
-  "viewer": "Tab",
+  "viewer": "Accordian",
   "totalSteps": 2,
   "steps": [
     {
