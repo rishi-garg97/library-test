@@ -19,11 +19,11 @@
     },
     {
       "name": "documentName",
-      "enable": false
+      "enable": true
     },
     {
-      "name": "startingAmount",
-      "enable": false
+      "name": "enrichmentStrategy",
+      "enable": true
     },
     {
       "name": "labeledQuantitation",
