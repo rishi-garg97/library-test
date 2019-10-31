@@ -76,7 +76,7 @@
 
         <!--Form field for date picker-->
 
-        <div class="form-group col-sm-6" *ngIf="property && property.dataType=='date'"
+        <div class="form-group col-sm-6" *ngIf="property && property.dataType=='Date'"
              style="margin-bottom:0px;">
           <lib-date [property]="property"
                      (addControl)="addControl($event)">

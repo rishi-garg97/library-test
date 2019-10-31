@@ -26,10 +26,6 @@
       "enable": true
     },
     {
-      "name": "labeledQuantitation",
-      "enable": true
-    },
-    {
       "name": "gender",
       "enable": true
     },
@@ -38,7 +34,14 @@
       "enable": true
     },
     {
-      "name": "columnType",
+      "name": "labelFree",
+      "enable": true
+    },
+    {
+      "name": "labelFreeQuantitation",
+      "enable": true
+    },{
+      "name": "startingAmount",
       "enable": true
     }
   ]

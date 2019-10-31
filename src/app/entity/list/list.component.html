@@ -1,0 +1,32 @@
+<div style="margin: 15px 25%">
+  <table mat-table [dataSource]="listData[modelSchema.name]" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let element"> {{element.email}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <button class="btn btn-primary"
+                (click)="editData(element)">Edit</button>
+      </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <button class="btn btn-danger"
+                (click)="deleteData(element)">Delete</button>
+      </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="['email', 'edit', 'delete']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['email', 'edit', 'delete'];"></tr>
+  </table>
+
+
+</div>

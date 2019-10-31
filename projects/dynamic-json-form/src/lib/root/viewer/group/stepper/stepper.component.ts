@@ -38,6 +38,7 @@ export class StepperComponent implements OnInit, OnChanges {
       newValue[`${this.uiSchema.viewer} ${index}`] = rawValues;
     });
     this.formStateChange.emit({
+      formControl: this.formGroup,
       formType: this.uiSchema.type,
       formName: this.uiSchema.name,
       formViewer: this.uiSchema.viewer,

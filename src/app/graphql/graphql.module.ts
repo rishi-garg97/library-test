@@ -15,6 +15,5 @@ export class GraphQLModule {
       link: httpLink.create({ uri: 'http://localhost:8080/graphql' }),
       cache: new InMemoryCache()
     });
-    console.log('success');
   }
 }
