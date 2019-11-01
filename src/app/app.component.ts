@@ -6,6 +6,7 @@ import { Apollo } from 'apollo-angular';
 import 'rxjs/add/operator/map';
 
 import {GraphQlService} from './graphql/graph-ql.service';
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -19,7 +20,7 @@ export class AppComponent implements OnInit {
   modelSchema;
 
 
-  constructor(private apollo: Apollo, private graphQlService: GraphQlService) {
+  constructor(private apollo: Apollo, private graphQlService: GraphQlService, public router: Router) {
   }
 
   ngOnInit(): void {

@@ -17,7 +17,7 @@ export class NormalComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    // console.log(this.uiSchema);
+    console.log('NormalUi Schema', this.uiSchema);
   }
 
   ngOnChanges() {

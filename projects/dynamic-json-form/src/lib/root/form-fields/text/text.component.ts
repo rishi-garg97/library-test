@@ -15,6 +15,7 @@ export class TextComponent implements OnInit, OnChanges {
   formGroup: FormGroup;
   @Input() property;
   @Output() public addControl = new EventEmitter();
+  initialValue;
 
   constructor(private formBuilder: FormBuilder, private validationMessageGenerator: ValidationMessageGeneratorService) {
   }
@@ -45,9 +46,12 @@ export class TextComponent implements OnInit, OnChanges {
       validators.push(new PatternValidator().get(this.property.pattern));
     }
 
+    if (this.property.value) {
+      this.initialValue = this.property.value;
+    }
     this.formGroup = this.formBuilder.group({
       [this.property.name]: [{
-        value: '',
+        value: this.initialValue,
         disabled: !this.property.enable
       }, validators]
     });

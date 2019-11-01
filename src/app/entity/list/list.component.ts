@@ -1,4 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Router} from '@angular/router';
+import {EntityService} from '../entity.service';
 
 @Component({
   selector: 'app-list',
@@ -10,7 +12,7 @@ export class ListComponent implements OnInit {
   @Input() modelSchema;
   @Output() public listStateChange = new EventEmitter();
 
-  constructor() {
+  constructor(private router: Router, private entityService: EntityService) {
     // console.log('User Data', this.listData);
   }
 
@@ -19,6 +21,9 @@ export class ListComponent implements OnInit {
 
   editData = (ele) => {
     console.log(ele);
+    this.entityService.editedData = ele;
+    this.router.navigate(['edit']);
+
   }
   deleteData = (ele) => {
     this.listStateChange.emit({key: 'Delete', value: ele});

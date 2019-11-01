@@ -1,7 +1,15 @@
 <div style="margin: 15px 20%;">
-  <lib-form [modelSchema]="modelSchema"
+  <lib-form *ngIf = "mode === '/create'"
+            [modelSchema]="modelSchema"
             [uiSchema]="uiSchema"
             [errorSchema]="errorSchema"
+            (formStateChange)="formStateChange($event)">
+  </lib-form>
+  <lib-form *ngIf = "mode === '/edit'"
+            [modelSchema]="modelSchema"
+            [uiSchema]="uiSchema"
+            [errorSchema]="errorSchema"
+            [formValue] = "entityService.editedData"
             (formStateChange)="formStateChange($event)">
   </lib-form>
 </div>

@@ -5,6 +5,7 @@ import modelSchema from '../../../assets/modelSchema.json';
 import uiSchema from '../../../assets/uiSchema.json';
 import errorSchema from '../../../assets/errorMessageSchema.json';
 import {Router} from '@angular/router';
+import {EntityService} from '../entity.service';
 
 @Component({
   selector: 'app-create',
@@ -16,11 +17,17 @@ export class CreateComponent implements OnInit {
   modelSchema;
   uiSchema;
   errorSchema;
+  mode;
 
-  constructor(private graphQlService: GraphQlService, private router: Router) {
+
+  constructor(private graphQlService: GraphQlService, private router: Router, public entityService: EntityService) {
   }
 
   ngOnInit() {
+    this.mode = this.router.url;
+    // if (this.mode === '/edit') {
+    //   this.editFormData = this.entityService.editedData;
+    // }
     this.modelSchema = modelSchema;
     this.uiSchema = uiSchema;
     this.errorSchema = errorSchema;

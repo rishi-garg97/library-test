@@ -2,7 +2,7 @@
 
 <router-outlet></router-outlet>
 
-<app-list *ngIf="userData"
+<app-list *ngIf="userData && router.url === '/'"
           [listData]="userData"
           [modelSchema]="modelSchema"
           (listStateChange)="listStateChange($event)">

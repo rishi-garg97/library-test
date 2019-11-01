@@ -12,10 +12,13 @@ export class FormComponent implements OnInit, OnChanges {
   @Input() modelSchema;
   @Input() uiSchema;
   @Input() errorSchema;
+  @Input() formValue;
   @Output() public formStateChange = new EventEmitter();
 
   modifiedUiSchema;
-  constructor(private validationMessageGenerator: ValidationMessageGeneratorService) { }
+
+  constructor(private validationMessageGenerator: ValidationMessageGeneratorService) {
+  }
 
   ngOnInit() {
     this.initialize();
@@ -60,6 +63,9 @@ export class FormComponent implements OnInit, OnChanges {
     return _.map(schema.fields, (field) => {
       const matchedField = _.find(this.modelSchema.properties, {name: field.name});
       if (matchedField) {
+        if (this.formValue) {
+          matchedField.value = this.formValue[matchedField.name];
+        }
         return {...field, ...matchedField};
       }
     });

@@ -5,7 +5,9 @@ import {CreateComponent} from './entity/create/create.component';
 
 
 const routes: Routes = [
-  { path: 'create', component: CreateComponent}
+  { path: 'create', component: CreateComponent},
+  { path: 'edit', component: CreateComponent}
+
 ];
 
 @NgModule({
